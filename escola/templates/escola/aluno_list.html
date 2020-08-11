@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Lista de Alunos</h1>
+<ul>
+    {% for aluno in object_list %}
+        <li> <a href="{{ aluno.get_absolute_url }}">{{ aluno.nome }}</a>
+            &nbsp &nbsp &nbsp &nbsp<a href="aluno/{{aluno.id}}/update" class="btn btn-warning" id = '{{aluno.id}}'>edit</a>
+            &nbsp &nbsp<a href="aluno/{{aluno.id}}/delete" class="btn btn-danger" id = '{{aluno.id}}'>delete</a>
+        </li>
+    {% empty %}
+        <li>No articles yet.</li>
+    {% endfor %}
+</ul>
+    
+{% endblock %}
